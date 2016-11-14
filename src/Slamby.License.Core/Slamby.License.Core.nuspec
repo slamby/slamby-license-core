@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>Slamby License Core</title>
+    <authors>Nauck IT KG, Slamby</authors>
+    <owners>Slamby</owners>
+    <licenseUrl>https://github.com/slamby/slamby-license-core/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/slamby/slamby-license-core</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Slamby.License.Core</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Original work Copyright 2012 - 2014 Nauck IT KG | Modified work Copyright 2016 Slamby</copyright>
+    <tags></tags>
+    <dependencies>
+      <dependency id="NETStandard.Library" version="1.6.0" />
+      <dependency id="Portable.BouncyCastle-Signed" version="1.7.0.2" />
+    </dependencies>
+  </metadata>
+</package>
