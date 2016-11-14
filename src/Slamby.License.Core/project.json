@@ -1,7 +1,14 @@
 ﻿{
   "version": "0.1.0",
   "authors": [ "Nauck IT KG", "Attila Laszlo" ],
-  "owners": ["Slamby"],
+  "copyright": "Original work Copyright 2012 - 2014 Nauck IT KG | Modified work Copyright 2016 Slamby",
+  "title": "",
+  "description": "Slamby.License.Core",
+  "packOptions": {
+    "owners": [ "Slamby" ],
+    "licenseUrl": "https://github.com/slamby/slamby-license-core/blob/master/LICENSE",
+    "projectUrl": "https://github.com/slamby/slamby-license-core"
+  },
   "dependencies": {
     "NETStandard.Library": "1.6.0",
     "Portable.BouncyCastle-Signed": "1.7.0.2"
