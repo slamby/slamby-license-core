@@ -1,0 +1,1 @@
+# slamby-license-core
