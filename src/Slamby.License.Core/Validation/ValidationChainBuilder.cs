@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Slamby.License.Core.Resources;
+using System;
 using System.Collections.Generic;
 
-﻿namespace Slamby.License.Core.Validation
+namespace Slamby.License.Core.Validation
 {
     internal class ValidationChainBuilder : IStartValidationChain, IValidationChain
     {
@@ -55,8 +56,8 @@ using System.Collections.Generic;
                     yield return validator.FailureResult
                                  ?? new GeneralValidationFailure
                                         {
-                                            Message = "License validation failed!"
-                                        };
+                                            Message = GlobalResources.LicenseValidationFailedMessage
+                                 };
             }
         }
     }

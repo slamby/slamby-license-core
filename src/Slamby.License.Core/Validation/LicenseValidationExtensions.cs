@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Slamby.License.Core.Resources;
+using System;
 using System.Linq;
 using System.Reflection;
 
-﻿namespace Slamby.License.Core.Validation
+namespace Slamby.License.Core.Validation
 {
     /// <summary>
     /// Extension methods for <see cref="License"/> validation.
@@ -30,41 +31,15 @@ using System.Reflection;
             var validator = validationChainBuilder.StartValidatorChain();
             validator.Validate = license => license.Expiration > DateTime.Now;
 
-            validator.FailureResult = new LicenseExpiredValidationFailure()
+            validator.FailureResult = new GeneralValidationFailure()
                                           {
-                                              Message = "Licensing for this product has expired!",
-                                              HowToResolve = @"Your license is expired. Please contact your distributor/vendor to renew the license."
-                                          };
+                                              Message = GlobalResources.LicenseExpiredMessage,
+                                              HowToResolve = GlobalResources.LicenseExpiredResolve
+            };
 
             return validationChainBuilder;
         }
 
-        /// <summary>
-        /// Check whether the product build date of the provided assemblies
-        /// exceeded the <see cref="License.Expiration"/> date.
-        /// </summary>
-        /// <param name="validationChain">The current <see cref="IStartValidationChain"/>.</param>
-        /// <param name="assemblies">The list of assemblies to check.</param>
-        /// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
-        public static IValidationChain ProductBuildDate(this IStartValidationChain validationChain, Assembly[] assemblies)
-        {
-            var validationChainBuilder = (validationChain as ValidationChainBuilder);
-            /*var validator = validationChainBuilder.StartValidatorChain();
-            validator.Validate = license => assemblies.All(
-                    asm =>
-                    asm.GetCustomAttributes(typeof (AssemblyBuildDateAttribute), false)
-                       .Cast<AssemblyBuildDateAttribute>()
-                       .All(a => a.BuildDate < license.Expiration));
-
-            validator.FailureResult = new LicenseExpiredValidationFailure()
-                                          {
-                                              Message = "Licensing for this product has expired!",
-                                              HowToResolve = @"Your license is expired. Please contact your distributor/vendor to renew the license."
-                                          };*/
-
-            return validationChainBuilder;
-        }
-   
         /// <summary>
         /// Allows you to specify a custom assertion that validates the <see cref="License"/>.
         /// </summary>
@@ -95,11 +70,51 @@ using System.Reflection;
             var validator = validationChainBuilder.StartValidatorChain();
             validator.Validate = license => license.VerifySignature(publicKey);
 
-            validator.FailureResult = new InvalidSignatureValidationFailure()
+            validator.FailureResult = new GeneralValidationFailure()
                                           {
-                                              Message = "License signature validation error!",
-                                              HowToResolve = @"The license signature and data does not match. This usually happens when a license file is corrupted or has been altered."
-                                          };
+                                              Message = GlobalResources.LicenseSignatureMessage,
+                                              HowToResolve = GlobalResources.LicenseSignatureResolve
+            };
+
+            return validationChainBuilder;
+        }
+
+        /// <summary>
+        /// Validates if the license id is the same.
+        /// </summary>
+        /// <param name="validationChain">The current <see cref="IStartValidationChain"/>.</param>
+        /// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
+        public static IValidationChain Id(this IStartValidationChain validationChain, string id)
+        {
+            var validationChainBuilder = (validationChain as ValidationChainBuilder);
+            var validator = validationChainBuilder.StartValidatorChain();
+            validator.Validate = license => license.Id == id;
+
+            validator.FailureResult = new GeneralValidationFailure()
+            {
+                Message = GlobalResources.LicenseIdMessage,
+                HowToResolve = GlobalResources.LicenseIdResolve
+            };
+
+            return validationChainBuilder;
+        }
+
+        /// <summary>
+        /// Validates the cores number.
+        /// </summary>
+        /// <param name="validationChain">The current <see cref="IStartValidationChain"/>.</param>
+        /// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
+        public static IValidationChain Cores(this IStartValidationChain validationChain, int cores)
+        {
+            var validationChainBuilder = (validationChain as ValidationChainBuilder);
+            var validator = validationChainBuilder.StartValidatorChain();
+            validator.Validate = license => license.Cores >= cores;
+
+            validator.FailureResult = new GeneralValidationFailure()
+            {
+                Message = GlobalResources.LicenseCoresMessage,
+                HowToResolve = GlobalResources.LicenseCoresResolve
+            };
 
             return validationChainBuilder;
         }
