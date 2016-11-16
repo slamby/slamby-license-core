@@ -246,6 +246,16 @@ namespace Slamby.License.Core
         }
 
         /// <summary>
+        /// Loads a <see cref="License"/> from a string that contains Base64.
+        /// </summary>
+        /// <param name="base64String">A <see cref="string"/> that contains Base64.</param>
+        /// <returns>A <see cref="License"/> populated from the <see cref="string"/> that contains Base64.</returns>
+        public static License LoadFromBase64(string base64String)
+        {
+            return License.Load(Encoding.UTF8.GetString(Convert.FromBase64String(base64String)));
+        }
+
+        /// <summary>
         /// Loads a <see cref="License"/> by using the specified <see cref="Stream"/>
         /// that contains the XML.
         /// </summary>
@@ -315,6 +325,11 @@ namespace Slamby.License.Core
         public override string ToString()
         {
             return xmlData.ToString();
+        }
+
+        public string ToBase64()
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(ToString()));
         }
 
         /// <summary>

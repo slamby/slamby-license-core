@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Slamby.License.Models
+namespace Slamby.License.Core.Models
 {
     public class CreateCommercialRequestModel
     {

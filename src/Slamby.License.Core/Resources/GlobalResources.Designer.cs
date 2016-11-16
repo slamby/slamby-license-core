@@ -78,6 +78,24 @@ namespace Slamby.License.Core.Resources {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to Existing license for this instance id!.
+        /// </summary>
+        public static string LicenseExistingInstanceMessage {
+            get {
+                return ResourceManager.GetString("LicenseExistingInstanceMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to There is an already activated license for this instance id. If you really need a new one, contact us. - support@slamby.com.
+        /// </summary>
+        public static string LicenseExistingInstanceResolve {
+            get {
+                return ResourceManager.GetString("LicenseExistingInstanceResolve", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to License for this product has expired!.
         /// </summary>
         public static string LicenseExpiredMessage {

@@ -123,6 +123,12 @@
   <data name="LicenseCoresResolve" xml:space="preserve">
     <value>The core number of your server is greater than in the license. Contact us to purchase the right license. - support@slamby.com</value>
   </data>
+  <data name="LicenseExistingInstanceMessage" xml:space="preserve">
+    <value>Existing license for this instance id!</value>
+  </data>
+  <data name="LicenseExistingInstanceResolve" xml:space="preserve">
+    <value>There is an already activated license for this instance id. If you really need a new one, contact us. - support@slamby.com</value>
+  </data>
   <data name="LicenseExpiredMessage" xml:space="preserve">
     <value>License for this product has expired!</value>
   </data>
