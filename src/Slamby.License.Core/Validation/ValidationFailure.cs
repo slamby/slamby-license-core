@@ -1,18 +1,18 @@
 ﻿﻿namespace Slamby.License.Core.Validation
 {
     /// <summary>
-    /// Represents a failure of a <see cref="ILicenseValidator"/>.
+    /// Represents a general validation failure.
     /// </summary>
-    public interface IValidationFailure
+    public class ValidationFailure
     {
         /// <summary>
         /// Gets or sets a message that describes the validation failure.
         /// </summary>
-        string Message { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Gets or sets a message that describes how to recover from the validation failure.
         /// </summary>
-        string HowToResolve { get; set; }
+        public string HowToResolve { get; set; }
     }
 }

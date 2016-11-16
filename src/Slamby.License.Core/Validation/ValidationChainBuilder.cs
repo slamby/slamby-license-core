@@ -42,7 +42,7 @@ namespace Slamby.License.Core.Validation
             return this;
         }
 
-        public IEnumerable<IValidationFailure> AssertValidLicense()
+        public IEnumerable<ValidationFailure> AssertValidLicense()
         {
             CompleteValidatorChain();
 
@@ -54,7 +54,7 @@ namespace Slamby.License.Core.Validation
 
                 if (!validator.Validate(license))
                     yield return validator.FailureResult
-                                 ?? new GeneralValidationFailure
+                                 ?? new ValidationFailure
                                         {
                                             Message = GlobalResources.LicenseValidationFailedMessage
                                  };

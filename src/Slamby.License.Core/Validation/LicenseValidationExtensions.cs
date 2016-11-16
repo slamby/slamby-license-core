@@ -31,7 +31,7 @@ namespace Slamby.License.Core.Validation
             var validator = validationChainBuilder.StartValidatorChain();
             validator.Validate = license => license.Expiration > DateTime.Now;
 
-            validator.FailureResult = new GeneralValidationFailure()
+            validator.FailureResult = new ValidationFailure()
                                           {
                                               Message = GlobalResources.LicenseExpiredMessage,
                                               HowToResolve = GlobalResources.LicenseExpiredResolve
@@ -47,7 +47,7 @@ namespace Slamby.License.Core.Validation
         /// <param name="predicate">The predicate to determine of the <see cref="License"/> is valid.</param>
         /// <param name="failure">The <see cref="IValidationFailure"/> will be returned to the application when the <see cref="ILicenseValidator"/> fails.</param>
         /// <returns>An instance of <see cref="IStartValidationChain"/>.</returns>
-        public static IValidationChain AssertThat(this IStartValidationChain validationChain, Predicate<License> predicate, IValidationFailure failure)
+        public static IValidationChain AssertThat(this IStartValidationChain validationChain, Predicate<License> predicate, ValidationFailure failure)
         {
             var validationChainBuilder = (validationChain as ValidationChainBuilder);
             var validator = validationChainBuilder.StartValidatorChain();
@@ -70,7 +70,7 @@ namespace Slamby.License.Core.Validation
             var validator = validationChainBuilder.StartValidatorChain();
             validator.Validate = license => license.VerifySignature(publicKey);
 
-            validator.FailureResult = new GeneralValidationFailure()
+            validator.FailureResult = new ValidationFailure()
                                           {
                                               Message = GlobalResources.LicenseSignatureMessage,
                                               HowToResolve = GlobalResources.LicenseSignatureResolve
@@ -90,7 +90,7 @@ namespace Slamby.License.Core.Validation
             var validator = validationChainBuilder.StartValidatorChain();
             validator.Validate = license => license.Id == id;
 
-            validator.FailureResult = new GeneralValidationFailure()
+            validator.FailureResult = new ValidationFailure()
             {
                 Message = GlobalResources.LicenseIdMessage,
                 HowToResolve = GlobalResources.LicenseIdResolve
@@ -110,7 +110,7 @@ namespace Slamby.License.Core.Validation
             var validator = validationChainBuilder.StartValidatorChain();
             validator.Validate = license => license.Cores >= cores;
 
-            validator.FailureResult = new GeneralValidationFailure()
+            validator.FailureResult = new ValidationFailure()
             {
                 Message = GlobalResources.LicenseCoresMessage,
                 HowToResolve = GlobalResources.LicenseCoresResolve

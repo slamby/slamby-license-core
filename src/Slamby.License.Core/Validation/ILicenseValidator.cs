@@ -23,6 +23,6 @@
         /// Gets or sets the <see cref="IValidationFailure"/> result. The <see cref="IValidationFailure"/>
         /// will be returned to the application when the <see cref="ILicenseValidator"/> fails.
         /// </summary>
-        IValidationFailure FailureResult { get; set; }
+        ValidationFailure FailureResult { get; set; }
     }
 }

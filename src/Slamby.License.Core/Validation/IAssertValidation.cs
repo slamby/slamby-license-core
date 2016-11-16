@@ -11,6 +11,6 @@
         /// Invokes the license assertion.
         /// </summary>
         /// <returns>An array is <see cref="IValidationFailure"/> when the validation fails.</returns>
-        IEnumerable<IValidationFailure> AssertValidLicense();
+        IEnumerable<ValidationFailure> AssertValidLicense();
     }
 }
