@@ -13,6 +13,11 @@
         /// <summary>
         /// Commercial license
         /// </summary>
-        Commercial = 2
+        Commercial = 2,
+
+        /// <summary>
+        /// Azure Marketplace license
+        /// </summary>
+        MarketPlace = 3
     }
 }
