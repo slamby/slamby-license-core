@@ -141,6 +141,12 @@
   <data name="LicenseIdResolve" xml:space="preserve">
     <value>The id of the server instance is not matched with the license. If you reinstalled the Slamby API please contact us. - support@slamby.com</value>
   </data>
+  <data name="LicenseInvalidBase64" xml:space="preserve">
+    <value>The given base64 is not a valid License object! Please contact us. - support@slamby.com</value>
+  </data>
+  <data name="LicenseNotExistingMessage" xml:space="preserve">
+    <value>There isn't any license for this instance id! Please contact us. - support@slamby.com</value>
+  </data>
   <data name="LicenseSignatureMessage" xml:space="preserve">
     <value>License signature validation error!</value>
   </data>

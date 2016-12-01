@@ -132,6 +132,24 @@ namespace Slamby.License.Core.Resources {
         }
         
         /// <summary>
+        ///    Looks up a localized string similar to The given base64 is not a valid License object! Please contact us. - support@slamby.com.
+        /// </summary>
+        public static string LicenseInvalidBase64 {
+            get {
+                return ResourceManager.GetString("LicenseInvalidBase64", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///    Looks up a localized string similar to There isn&apos;t any license for this instance id! Please contact us. - support@slamby.com.
+        /// </summary>
+        public static string LicenseNotExistingMessage {
+            get {
+                return ResourceManager.GetString("LicenseNotExistingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to License signature validation error!.
         /// </summary>
         public static string LicenseSignatureMessage {
